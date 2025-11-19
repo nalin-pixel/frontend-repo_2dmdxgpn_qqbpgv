@@ -1,71 +1,142 @@
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Section from './components/Section'
+import { Grid } from './components/Cards'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+    <div className="bg-slate-950 text-slate-100">
+      <Navbar />
+      <Hero />
 
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
+      <Section id="supplies" title="Industrial Supplies" eyebrow="Products">
+        <Grid
+          items=[
+            {
+              title: 'Bearings',
+              points: ['Ball, roller, spherical', 'Brands on request', 'Traceable supply'],
+            },
+            {
+              title: 'Fasteners',
+              points: ['Bolts, nuts, studs', 'Carbon & stainless', 'Metric & imperial'],
+            },
+            {
+              title: 'Valves',
+              points: ['Gate, globe, check, ball', 'API/ANSI compliant', 'Material & test certificates'],
+            },
+            {
+              title: 'Safety Gear',
+              points: ['PPE, helmets, gloves', 'Fall protection', 'Approved suppliers'],
+            },
+          ]
+        />
+      </Section>
+
+      <Section id="services" title="Industrial Services" eyebrow="Execution">
+        <Grid
+          items=[
+            {
+              title: 'Mechanical Maintenance',
+              points: ['Pumps, compressors, gearboxes', 'Shutdown support', 'Predictive & corrective'],
+            },
+            {
+              title: 'Electrical Work',
+              points: ['LV/MV installation', 'Panels & cabling', 'Testing & commissioning'],
+            },
+            {
+              title: 'Motor Rewinding',
+              points: ['AC/DC motors', 'Balancing & alignment', 'Warranty-backed'],
+            },
+          ]
+        />
+      </Section>
+
+      <Section id="rental" title="Heavy Equipment Rental" eyebrow="Fleet">
+        <Grid
+          items=[
+            {
+              title: 'Lifting',
+              points: ['Cranes, forklifts, manlifts', 'Certified operators', 'On-site mobilization'],
+            },
+            {
+              title: 'Earthmoving',
+              points: ['Excavators, loaders, skid steers', 'Fuel & maintenance plans', 'Short and long term'],
+            },
+            {
+              title: 'Support',
+              points: ['Generators, compressors, lighting', '24/7 callout', 'Safety-first operations'],
+            },
+          ]
+        />
+      </Section>
+
+      <Section id="construction" title="Construction Support" eyebrow="Projects">
+        <Grid
+          items=[
+            {
+              title: 'Site Services',
+              points: ['Scaffolding, rigging', 'Site logistics', 'Permit compliance'],
+            },
+            {
+              title: 'Fabrication',
+              points: ['Piping spools, skids', 'Welding & NDT', 'Shop & field'],
+            },
+            {
+              title: 'Civil Works',
+              points: ['Foundations, trenches', 'Fencing & roads', 'HSE supervision'],
+            },
+          ]
+        />
+      </Section>
+
+      <Section id="industries" title="Industries Served" eyebrow="Expertise">
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            'Oil & Gas',
+            'Petrochemicals',
+            'Power & Utilities',
+            'Steel & Metals',
+            'Marine',
+            'Food & Beverage',
+          ].map((i) => (
+            <div key={i} className="bg-slate-900/60 border border-white/10 rounded-xl p-6 text-center">
+              <p className="text-white font-medium">{i}</p>
             </div>
+          ))}
+        </div>
+      </Section>
 
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
+      <Section id="about" title="About Gate of Reliance Co" eyebrow="Company">
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="bg-slate-900/60 border border-white/10 rounded-xl p-6">
+            <p className="text-slate-300 text-sm leading-relaxed">
+              We supply critical industrial products and deliver technical services with speed and precision. Our teams operate across Saudi Arabia and Bahrain, supporting maintenance, shutdowns, and projects. We work to international standards and local regulations. Safety drives every decision.
             </p>
+            <ul className="mt-4 space-y-2 text-sm text-slate-300">
+              <li>• Experienced multi-discipline technicians</li>
+              <li>• Documented QA/QC and full traceability</li>
+              <li>• Vendor network for fast sourcing</li>
+              <li>• Strong logistics and on-time delivery</li>
+            </ul>
           </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
+          <div className="bg-slate-900/60 border border-white/10 rounded-xl p-6">
+            <p className="text-slate-300 text-sm leading-relaxed">
+              We are built for reliability. From motors to valves, from electrical panels to scaffolding, we bring the right parts and the right people. Our operational reach covers the Kingdom’s industrial hubs and extends to Bahrain.
             </p>
+            <ul className="mt-4 space-y-2 text-sm text-slate-300">
+              <li>• Compliance-first culture and HSE focus</li>
+              <li>• Technical expertise across mechanical and electrical</li>
+              <li>• Responsive support and clear communication</li>
+              <li>• Partner mindset for long-term value</li>
+            </ul>
           </div>
         </div>
-      </div>
+      </Section>
+
+      <Contact />
+      <Footer />
     </div>
   )
 }
